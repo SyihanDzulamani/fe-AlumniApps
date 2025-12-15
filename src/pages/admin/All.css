@@ -1,0 +1,83 @@
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* padding di cell, BUKAN margin tabel */
+.admin-table th,
+.admin-table td {
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.admin-table th {
+  background-color: #f4f4f4;
+}
+
+.admin-table img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+
+/* BASE BUTTON */
+.btn {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  margin: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* PRIMARY (Tambah / Submit) */
+.btn-primary {
+  background-color: #2563eb; /* biru */
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #1d4ed8;
+}
+
+/* EDIT */
+.btn-edit {
+  background-color: #facc15; /* kuning */
+  color: #000;
+}
+
+.btn-edit:hover {
+  background-color: #eab308;
+}
+
+/* DELETE */
+.btn-delete {
+  background-color: #ef4444; /* merah */
+  color: #fff;
+}
+
+.btn-delete:hover {
+  background-color: #dc2626;
+}
+
+/* DISABLED */
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

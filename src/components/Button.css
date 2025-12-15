@@ -1,0 +1,26 @@
+.button-login {
+  padding: 8px 16px;
+  background-color: #F2F2F2;
+  color: #33765A;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  margin-right: 0;
+  /* margin-bottom: 10px; */
+}
+
+.button-login:hover {
+  background-color: #b8b8b8;
+}
+
+@media (max-width: 700px) {
+  .button-login {
+    margin-bottom: 10px;
+  }
+}
+/* .button-login:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+} */

@@ -1,0 +1,128 @@
+.navbar {
+  width: 100%;
+  background: #33765A;
+  position: fixed;
+  top: 0;
+  left: 0;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 9999;
+  height: 90px;
+  font-size: 13px;
+  padding: 0 20px;   /* ← INI BOLEH, TAPI HARUS CONSISTENT */
+  box-sizing: border-box;  /* ← PENTING BIAR TIDAK TEMBUS */
+}
+
+
+/* LEFT */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.logo-text {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+/* MENU DESKTOP */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.menu {
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.menu:hover {
+  color: #cfffd5;
+}
+
+/* BURGER BUTTON (hidden by default) */
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.line {
+  width: 28px;
+  height: 3px;
+  background: white;
+  transition: 0.3s;
+}
+
+/* animasi X */
+.line1.active {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.line2.active {
+  opacity: 0;
+}
+
+.line3.active {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 700px) {
+
+  .logo {
+    width: 50px;
+    height: 50px;
+  }
+
+  .logo-text {
+    font-size: 16px;
+  }
+
+  /* Menu dropdown */
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 90px;
+    right: 0;
+    width: 100%;
+    flex-direction: column;
+    background: #33765A;
+    text-align: right;         
+    align-items: flex-end;      /* item-item ngumpul di kanan */
+    padding: 20px 0;           
+    gap: 20px;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  /* Burger button */
+  .burger {
+    display: flex;
+    margin-right: 15px;
+  }
+
+  /* Link di dalam dropdown → rata kanan */
+  .nav-links a {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;  /* teks benar-benar ke kanan */
+    padding-right: 20px;
+  }
+}
+
