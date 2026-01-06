@@ -5,6 +5,11 @@
   box-sizing: border-box;
 }
 
+input:disabled {
+  background-color: #f3f4f6;
+  color: #555;
+  cursor: not-allowed;
+}
 
 .admin-table {
   width: 100%;
@@ -58,12 +63,12 @@
 
 /* EDIT */
 .btn-edit {
-  background-color: #facc15; /* kuning */
-  color: #000;
+  background-color: #33765A; /* kuning */
+  color: #ffffff;
 }
 
 .btn-edit:hover {
-  background-color: #eab308;
+  background-color: #49a780;
 }
 
 /* DELETE */

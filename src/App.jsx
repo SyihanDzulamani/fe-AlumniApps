@@ -7,11 +7,14 @@ import Alumni from "./pages/user/alumni/Alumni";
 import Footer from "./components/Footer";
 import Angkatan from "./pages/user/alumni/Angkatan";
 import Login from "./pages/user/Login";
+import ProfileAlumni from "./pages/user/Profil";
 import AlumniRegister from "./pages/user/Register";
+import RegisterAccount from "./pages/user/RegisterAccount";
 import "./App.css";
 
 //Admin
 import AdminAlumniList from "./pages/admin/ListAlumni";
+import UpdateAlumni from "./pages/admin/Update";
 
 export default function App() {
   return (
@@ -26,8 +29,14 @@ export default function App() {
         <Route path="/angkatan" element={<Angkatan />} />
         <Route path="/login" element={<Login />} />
         <Route path="/alumniRegister" element={<AlumniRegister />} />
+        <Route path="/profil/:id" element={<ProfileAlumni />} />
+        <Route path="/registerAkun" element={<RegisterAccount />} />
+
+
         {/* admin */}
         <Route path="/adm_list" element={<AdminAlumniList />} />
+        <Route path="/update_alumni/:id" element={<UpdateAlumni />} />
+
 
       </Routes>
       </div>

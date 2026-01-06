@@ -1,3 +1,114 @@
+/* ================= PROFILE CONTAINER ================= */
+.profile-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f4f6f8;
+  padding: 20px;
+}
+
+/* ================= PROFILE CARD ================= */
+.profile-card {
+  background: #ffffff;
+  width: 100%;
+  max-width: 420px;
+  border-radius: 14px;
+  padding: 24px 20px 30px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+/* ================= FOTO ================= */
+.profile-photo {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #eaeaea;
+  margin-bottom: 14px;
+}
+
+/* ================= NAMA & NIM ================= */
+.profile-name {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #222;
+}
+
+.profile-nim {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 20px;
+}
+
+/* ================= INFO GRID ================= */
+.profile-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.profile-info div {
+  background: #f9fafb;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: left;
+}
+
+.profile-info span {
+  font-size: 12px;
+  color: #888;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.profile-info p {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+/* ================= ACTION ================= */
+.profile-action {
+  margin-top: 10px;
+}
+
+/* ================= BUTTON ================= */
+.btn {
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-edit {
+  background: #2563eb;
+  color: #fff;
+}
+
+.btn-edit:hover {
+  background: #1e4ed8;
+  transform: translateY(-1px);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 480px) {
+  .profile-card {
+    padding: 20px 16px 26px;
+  }
+
+  .profile-info {
+    grid-template-columns: 1fr;
+  }
+}
+
+
 .login-container {
   display: flex;
   justify-content: center;

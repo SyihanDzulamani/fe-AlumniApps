@@ -1,5 +1,5 @@
 import "./Hero.css";
-import heroImage from "../assets/hero.jpeg";
+import heroImage from "../assets/hero.JPG";
 import ButtonReuse from "./Button";
 // import AlumniChart from "./Chart/AlumniChart";
 
