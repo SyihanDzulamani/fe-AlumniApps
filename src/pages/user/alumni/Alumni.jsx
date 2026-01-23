@@ -7,7 +7,8 @@ export default function Alumni() {
   const [alumni, setAlumni] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/listAlumni")
+    // fetch("http://localhost:3000/listAlumni")
+    fetch("http://154.19.37.160/listAlumni")
       .then((res) => res.json())
       .then((data) => {
         console.log("DATA ALUMNI:", data);

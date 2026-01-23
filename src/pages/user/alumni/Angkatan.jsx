@@ -8,7 +8,7 @@ export default function Angkatan() {
       Angkatan Universitas Islam KH. Ruhiat Cipasung
     </h2>
     <Link to='/fakultas'>
-        <button onClick={onclick} to="/alumni"> angkatan 1</button>
+        <button onClick={onclick} className="tombol" to="/alumni"> angkatan 1</button>
     </Link>
     </>
   );

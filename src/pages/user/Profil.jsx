@@ -10,7 +10,8 @@ export default function ProfileAlumni() {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/listIdAlumni/${id}`);
+        // const res = await fetch(`http://localhost:3000/listIdAlumni/${id}`);
+        const res = await fetch(`http://154.19.37.160/listIdAlumni/${id}`);
         const data = await res.json();
         setAlumni(data);
       } catch (error) {
@@ -66,6 +67,9 @@ export default function ProfileAlumni() {
         <div className="profile-action">
           <Link to={`/update_alumni/${alumni.id_alumni}`}>
             <button className="btn btn-edit">Edit Data</button>
+          </Link>
+          <Link to={`/kelola-akun`}>
+            <button className="btn btn-edit">Kelola Akun</button>
           </Link>
         </div>
       </div>

@@ -13,7 +13,8 @@ export default function Login() {
     e.preventDefault();
 
     try {
-      const res = await axios.post("http://localhost:3000/login", {
+      // const res = await axios.post("http://localhost:3000/login", {
+      const res = await axios.post("http://154.19.37.160/login", {
         username,
         password,
       });
@@ -24,8 +25,11 @@ export default function Login() {
       }
 
       // simpan token & user
-      localStorage.setItem("token", res.data.token);
-      localStorage.setItem("user", JSON.stringify(res.data.user));
+      const { token, user } = res.data;
+      localStorage.setItem("token", token);
+      localStorage.setItem("user", JSON.stringify(user));
+
+      window.dispatchEvent(new Event("auth-change"));
 
       // redirect berdasarkan role
       if (res.data.user.id_admin) {
@@ -33,11 +37,15 @@ export default function Login() {
       } else if (res.data.user.id_alumni) {
         navigate(`/profil/${res.data.user.id_alumni}`);
       } else {
-        navigate("/");
+         setError("Role user tidak valid");
       }
     } catch (err) {
-      setError(err.response?.data?.message || "Login gagal");
-    }
+        setError(
+          err.response?.data?.error ||
+          err.response?.data?.message ||
+          "Login gagal"
+        );
+      }
   };
 
   return (

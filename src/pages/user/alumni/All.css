@@ -72,6 +72,10 @@
   outline: none;
 }
 
+h2 {
+  margin: 20px;
+}
+
 /* Button */
 .login-btn {
   width: 100%;
@@ -88,6 +92,23 @@
 .login-btn:hover {
   background: #285d48;
 }
+
+.tombol {
+  padding: 10px 20px;
+  background-color: #285d48;
+  margin: 20px;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.tombol:hover {
+  background-color: #1d4233;
+}
+
 
 /* ================= MOBILE ================= */
 @media (max-width: 600px) {

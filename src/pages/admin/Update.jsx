@@ -24,7 +24,8 @@ export default function UpdateAlumni() {
     const fetchDetail = async () => {
       try {
         const res = await fetch(
-          `http://localhost:3000/listIdAlumni/${id}`
+          `http://154.19.37.160/listIdAlumni/${id}`
+          // `http://localhost:3000/listIdAlumni/${id}`
         );
         const data = await res.json();
 
@@ -71,11 +72,17 @@ export default function UpdateAlumni() {
 
     if (foto) data.append("foto", foto);
 
+    const token = localStorage.getItem("token");
+
     try {
       const res = await fetch(
-        `http://localhost:3000/editAlumni/${id}`,
+        `http://154.19.37.160/editAlumni/${id}`,
+        // `http://localhost:3000/editAlumni/${id}`,
         {
           method: "PUT",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
           body: data,
         }
       );
@@ -87,7 +94,17 @@ export default function UpdateAlumni() {
       }
 
       alert("Data alumni berhasil diperbarui");
-      navigate("/adm_list");
+
+      const user = JSON.parse(localStorage.getItem("user"));
+
+      if (user?.id_admin) {
+        navigate("/adm_list");
+      } else if (user?.id_alumni) {
+        navigate(`/profil/${user.id_alumni}`);
+      } else {
+        navigate("/");
+      }
+
     } catch (err) {
       console.error("Gagal update alumni", err);
     }

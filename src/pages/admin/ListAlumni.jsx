@@ -11,7 +11,8 @@ export default function AdminAlumniList() {
   const getAlumni = useCallback(async () => {
     setLoading(true);
     try {
-      const res = await axios.get("http://localhost:3000/listAlumni");
+      // const res = await axios.get("http://localhost:3000/listAlumni");
+      const res = await axios.get("http://154.19.37.160/listAlumni");
       setAlumni(res.data);
     } catch (error) {
       console.error("Gagal fetch alumni:", error);
@@ -26,7 +27,18 @@ export default function AdminAlumniList() {
     if (!confirmDelete) return;
 
     try {
-      await axios.delete(`http://localhost:3000/deleteAlumni/${id}`);
+
+      const token = localStorage.getItem("token");
+
+      await axios.delete(`
+        http://154.19.37.160/deleteAlumni/${id}`,
+        // http://localhost:3000/deleteAlumni/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       alert("Data alumni berhasil dihapus");
       getAlumni(); // refresh data
     } catch (error) {

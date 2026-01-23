@@ -10,11 +10,13 @@ import Login from "./pages/user/Login";
 import ProfileAlumni from "./pages/user/Profil";
 import AlumniRegister from "./pages/user/Register";
 import RegisterAccount from "./pages/user/RegisterAccount";
+import KelolaAkun from "./pages/user/KelolaAkun";
 import "./App.css";
 
 //Admin
 import AdminAlumniList from "./pages/admin/ListAlumni";
 import UpdateAlumni from "./pages/admin/Update";
+
 
 export default function App() {
   return (
@@ -31,6 +33,7 @@ export default function App() {
         <Route path="/alumniRegister" element={<AlumniRegister />} />
         <Route path="/profil/:id" element={<ProfileAlumni />} />
         <Route path="/registerAkun" element={<RegisterAccount />} />
+        <Route path="/kelola-akun" element={<KelolaAkun />} />
 
 
         {/* admin */}

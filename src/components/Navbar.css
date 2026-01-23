@@ -126,3 +126,49 @@
   }
 }
 
+.profile-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+
+.dots-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.dropdown-nav {
+  position: absolute;
+  top: 35px;
+  right: 0;
+  background: rgb(23, 185, 90);
+  border-radius: 6px;
+  min-width: 120px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.dropdown-nav button {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown-nav button:hover {
+  background: #f1f5f9;
+}
+
+.logout-btn {
+  background: #dadada;
+  color: #33765A;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+

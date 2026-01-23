@@ -8,7 +8,7 @@ export default function Prodi() {
       Program Studi Universitas Islam KH. Ruhiat Cipasung
     </h2>
     <Link to='/alumni'>
-        <button onClick={onclick} to="/alumni">Informatika</button>
+        <button onClick={onclick} className="tombol" to="/alumni">Informatika</button>
     </Link>
     </>
   );

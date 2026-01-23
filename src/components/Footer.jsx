@@ -7,7 +7,6 @@ export default function Footer() {
       <div className="footer-inner">
         <div className="left">
           <strong>Alumni Apps</strong>
-          <p className="muted">Masih 19 tahun;)</p>
         </div>
 
         <div className="right">

@@ -8,7 +8,7 @@ export default function Fakultas() {
       Fakultas Universitas Islam KH. Ruhiat Cipasung
     </h2>
     <Link to='/prodi'>
-        <button onClick={onclick} to="/alumni"> Ilmu komputer </button>
+        <button onClick={onclick} className="tombol" to="/alumni"> Ilmu komputer </button>
     </Link>
     </>
   );

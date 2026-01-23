@@ -31,7 +31,8 @@ export default function RegisterAccount() {
     try {
       // ================= 1. AMBIL DATA ALUMNI BERDASARKAN NIM =================
       const alumniRes = await axios.get(
-        `http://localhost:3000/listAlumni?nim=${nim}`
+        // `http://localhost:3000/listAlumni?nim=${nim}`
+        `http://154.19.37.160/listAlumni?nim=${nim}`
       );
 
       const alumniList = alumniRes.data; // ARRAY langsung
@@ -44,7 +45,8 @@ export default function RegisterAccount() {
       const idAlumni = alumniList[0].id_alumni;
 
       // ================= 2. REGISTER AKUN =================
-      await axios.post("http://localhost:3000/register", {
+      // await axios.post("http://localhost:3000/register", {
+      await axios.post("http://154.19.37.160/register", {
         id_alumni: idAlumni,
         username,
         password,

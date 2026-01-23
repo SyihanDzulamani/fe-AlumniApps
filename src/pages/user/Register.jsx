@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./All.css";
 
 export default function AlumniRegister() {
@@ -52,33 +53,59 @@ export default function AlumniRegister() {
   // ========================
   // SUBMIT DATA
   // ========================
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+    const navigate = useNavigate();
 
-    const data = new FormData();
-    data.append("nama", nama);
-    data.append("nim", nim);
-    data.append("fakultas", fakultas);
-    data.append("prodi", prodi);
-    data.append("angkatan", angkatan);
-    data.append("tahun_masuk", tahun_masuk);
-    data.append("tahun_keluar", tahun_keluar);
-    data.append("foto", foto);
+    const handleSubmit = async (e) => {
+      e.preventDefault();
 
-    console.log("DATA YANG DIKIRIM:", Object.fromEntries(data));
+      const data = new FormData();
+      data.append("nama", nama);
+      data.append("nim", nim);
+      data.append("fakultas", fakultas);
+      data.append("prodi", prodi);
+      data.append("angkatan", angkatan);
+      data.append("tahun_masuk", tahun_masuk);
+      data.append("tahun_keluar", tahun_keluar);
+      if (foto) data.append("foto", foto);
 
-    try {
-      const res = await fetch("http://localhost:3000/inputAlumni", {
-        method: "POST",
-        body: data, // <-- FormData otomatis handle file + text
-      });
+      try {
+        // const res = await fetch("http://localhost:3000/inputAlumni", {
+        const res = await fetch("http://154.19.37.160/inputAlumni", {
+          method: "POST",
+          body: data,
+        });
 
-      const result = await res.json();
-      console.log("RESPON BACKEND:", result);
-    } catch (error) {
-      console.error("ERROR KIRIM DATA:", error);
-    }
-  };
+        const result = await res.json();
+
+        // ❌ GAGAL SIMPAN
+        if (!res.ok) {
+          alert(result.message || "Gagal menyimpan data alumni");
+          return;
+        }
+
+        navigate("/registerAkun");
+
+        // ✅ BERHASIL SIMPAN
+        console.log("RESPON BACKEND:", result);
+
+        // (OPSIONAL) simpan id alumni untuk step berikutnya
+        localStorage.setItem(
+          "register_alumni",
+          JSON.stringify({
+            id_alumni: result.id_alumni,
+            nama,
+            nim,
+          })
+        );
+
+        // 👉 PINDAH HALAMAN SETELAH SUKSES
+        navigate("/registerAkun");
+      } catch (error) {
+        console.error("ERROR KIRIM DATA:", error);
+        alert("Terjadi kesalahan server");
+      }
+    };
+
 
   return (
     <div className="login-container">
