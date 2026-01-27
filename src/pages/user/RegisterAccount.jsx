@@ -4,7 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 import "./All.css";
 
 export default function RegisterAccount() {
-  const [nim, setNim] = useState("");
+  const [idAlumni, setIdAlumni] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -17,8 +17,8 @@ export default function RegisterAccount() {
     setError("");
     setSuccess("");
 
-    // ================= VALIDASI FE =================
-    if (!nim || !username || !password) {
+    // ===== VALIDASI FE =====
+    if (!idAlumni || !username || !password) {
       setError("Semua field wajib diisi");
       return;
     }
@@ -29,30 +29,12 @@ export default function RegisterAccount() {
     }
 
     try {
-      // ================= 1. AMBIL DATA ALUMNI BERDASARKAN NIM =================
-      const alumniRes = await axios.get(
-        // `http://localhost:3000/listAlumni?nim=${nim}`
-        `https://154.19.37.160/listAlumni?nim=${nim}`
-      );
-
-      const alumniList = alumniRes.data; // ARRAY langsung
-
-      if (!Array.isArray(alumniList) || alumniList.length === 0) {
-        setError("Data alumni tidak ditemukan");
-        return;
-      }
-
-      const idAlumni = alumniList[0].id_alumni;
-
-      // ================= 2. REGISTER AKUN =================
-      // await axios.post("http://localhost:3000/register", {
       await axios.post("https://154.19.37.160/register", {
-        id_alumni: idAlumni,
+        id_alumni: Number(idAlumni),
         username,
         password,
       });
 
-      // ================= 3. SUCCESS =================
       setSuccess("Registrasi akun berhasil");
       setTimeout(() => navigate("/login"), 1500);
 
@@ -75,12 +57,12 @@ export default function RegisterAccount() {
 
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label>NIM</label>
+            <label>ID Alumni</label>
             <input
-              type="text"
-              placeholder="Masukkan NIM"
-              value={nim}
-              onChange={(e) => setNim(e.target.value)}
+              type="number"
+              placeholder="Masukkan ID Alumni"
+              value={idAlumni}
+              onChange={(e) => setIdAlumni(e.target.value)}
               required
             />
           </div>
