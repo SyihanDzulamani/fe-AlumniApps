@@ -14,7 +14,7 @@ export default function ModalEditEmail({ user, onClose }) {
 
       await axios.put(
         // `http://localhost:3000/updateEmail/${user.id_user}`,
-        `http://154.19.37.160/updateEmail/${user.id_user}`,
+        `https://154.19.37.160/updateEmail/${user.id_user}`,
         { username },
         {
           headers: {

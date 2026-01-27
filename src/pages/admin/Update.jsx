@@ -24,7 +24,7 @@ export default function UpdateAlumni() {
     const fetchDetail = async () => {
       try {
         const res = await fetch(
-          `http://154.19.37.160/listIdAlumni/${id}`
+          `https://154.19.37.160/listIdAlumni/${id}`
           // `http://localhost:3000/listIdAlumni/${id}`
         );
         const data = await res.json();
@@ -76,7 +76,7 @@ export default function UpdateAlumni() {
 
     try {
       const res = await fetch(
-        `http://154.19.37.160/editAlumni/${id}`,
+        `https://154.19.37.160/editAlumni/${id}`,
         // `http://localhost:3000/editAlumni/${id}`,
         {
           method: "PUT",

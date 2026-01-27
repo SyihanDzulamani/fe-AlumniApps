@@ -11,7 +11,7 @@ export default function ProfileAlumni() {
     const fetchProfile = async () => {
       try {
         // const res = await fetch(`http://localhost:3000/listIdAlumni/${id}`);
-        const res = await fetch(`http://154.19.37.160/listIdAlumni/${id}`);
+        const res = await fetch(`https://154.19.37.160/listIdAlumni/${id}`);
         const data = await res.json();
         setAlumni(data);
       } catch (error) {

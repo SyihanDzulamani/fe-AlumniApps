@@ -21,7 +21,7 @@ export default function ModalChangePassword({ onClose }) {
 
       await axios.post(
         // "http://localhost:3000/changePassword",
-        "http://154.19.37.160/changePassword",
+        "https://154.19.37.160/changePassword",
         {
           oldPassword,
           newPassword,

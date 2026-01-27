@@ -70,7 +70,7 @@ export default function AlumniRegister() {
 
       try {
         // const res = await fetch("http://localhost:3000/inputAlumni", {
-        const res = await fetch("http://154.19.37.160/inputAlumni", {
+        const res = await fetch("https://154.19.37.160/inputAlumni", {
           method: "POST",
           body: data,
         });
