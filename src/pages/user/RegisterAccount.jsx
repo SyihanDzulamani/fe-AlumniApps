@@ -18,7 +18,7 @@ export default function RegisterAccount() {
 
   useEffect(() => {
     if (!alumniData?.id_alumni) {
-      navigate("/register-alumni");
+      navigate("/registerAkun");
     }
   }, []);
 
