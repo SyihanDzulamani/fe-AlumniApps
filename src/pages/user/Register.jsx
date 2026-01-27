@@ -69,7 +69,6 @@ export default function AlumniRegister() {
       if (foto) data.append("foto", foto);
 
       try {
-        // const res = await fetch("http://localhost:3000/inputAlumni", {
         const res = await fetch("https://154.19.37.160/inputAlumni", {
           method: "POST",
           body: data,
@@ -77,18 +76,12 @@ export default function AlumniRegister() {
 
         const result = await res.json();
 
-        // ❌ GAGAL SIMPAN
         if (!res.ok) {
           alert(result.message || "Gagal menyimpan data alumni");
           return;
         }
 
-        navigate("/registerAkun");
-
-        // ✅ BERHASIL SIMPAN
-        console.log("RESPON BACKEND:", result);
-
-        // (OPSIONAL) simpan id alumni untuk step berikutnya
+        // 🔴 TAMBAHAN PENTING
         localStorage.setItem(
           "register_alumni",
           JSON.stringify({
@@ -98,13 +91,15 @@ export default function AlumniRegister() {
           })
         );
 
-        // 👉 PINDAH HALAMAN SETELAH SUKSES
+        // 🔴 PINDAH HALAMAN SETELAH DISIMPAN
         navigate("/registerAkun");
+
       } catch (error) {
         console.error("ERROR KIRIM DATA:", error);
         alert("Terjadi kesalahan server");
       }
     };
+
 
 
   return (

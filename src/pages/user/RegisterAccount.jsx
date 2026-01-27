@@ -1,10 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
+import { useEffect } from "react";
 import "./All.css";
 
 export default function RegisterAccount() {
-  const [idAlumni, setIdAlumni] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -12,13 +12,22 @@ export default function RegisterAccount() {
 
   const navigate = useNavigate();
 
+  const alumniData = JSON.parse(
+    localStorage.getItem("register_alumni")
+  );
+
+  useEffect(() => {
+    if (!alumniData?.id_alumni) {
+      navigate("/register-alumni");
+    }
+  }, []);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
     setSuccess("");
 
-    // ===== VALIDASI FE =====
-    if (!idAlumni || !username || !password) {
+    if (!username || !password) {
       setError("Semua field wajib diisi");
       return;
     }
@@ -30,10 +39,12 @@ export default function RegisterAccount() {
 
     try {
       await axios.post("https://154.19.37.160/register", {
-        id_alumni: Number(idAlumni),
+        id_alumni: alumniData.id_alumni,
         username,
         password,
       });
+
+      localStorage.removeItem("register_alumni");
 
       setSuccess("Registrasi akun berhasil");
       setTimeout(() => navigate("/login"), 1500);
@@ -47,6 +58,7 @@ export default function RegisterAccount() {
     }
   };
 
+
   return (
     <div className="login-container">
       <div className="login-box">
@@ -56,16 +68,6 @@ export default function RegisterAccount() {
         {success && <p className="success-text">{success}</p>}
 
         <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label>ID Alumni</label>
-            <input
-              type="number"
-              placeholder="Masukkan ID Alumni"
-              value={idAlumni}
-              onChange={(e) => setIdAlumni(e.target.value)}
-              required
-            />
-          </div>
 
           <div className="form-group">
             <label>Email</label>
