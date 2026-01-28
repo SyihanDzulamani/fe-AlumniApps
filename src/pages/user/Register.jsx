@@ -85,9 +85,9 @@ export default function AlumniRegister() {
         localStorage.setItem(
           "register_alumni",
           JSON.stringify({
-            id_alumni: result.id_alumni,
-            nama,
-            nim,
+            id_alumni: result.data.id_alumni,
+            nama: result.data.nama,
+            nim: result.data.nim,
           })
         );
 
