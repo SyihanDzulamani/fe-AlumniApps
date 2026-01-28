@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { fakultasLabelMap } from "../../utils/fakultas";
 import "./All.css";
 
 export default function AlumniRegister() {
@@ -61,7 +62,10 @@ export default function AlumniRegister() {
       const data = new FormData();
       data.append("nama", nama);
       data.append("nim", nim);
-      data.append("fakultas", fakultas);
+      data.append(
+        "fakultas",
+        fakultasLabelMap[fakultas]
+      );
       data.append("prodi", prodi);
       data.append("angkatan", angkatan);
       data.append("tahun_masuk", tahun_masuk);
