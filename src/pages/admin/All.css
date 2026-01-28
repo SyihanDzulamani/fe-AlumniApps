@@ -50,6 +50,18 @@ input:disabled {
   justify-content: center;
   align-items: center;
 }
+.addbtn {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  margin-left: 20px;
+  justify-content: center;
+  align-items: center;
+}
 
 /* PRIMARY (Tambah / Submit) */
 .btn-primary {
@@ -63,6 +75,10 @@ input:disabled {
 
 /* EDIT */
 .btn-edit {
+  background-color: #33765A; /* kuning */
+  color: #ffffff;
+}
+.btn-add {
   background-color: #33765A; /* kuning */
   color: #ffffff;
 }

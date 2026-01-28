@@ -11,7 +11,7 @@ export default function AlumniChart() {
   ];
 
   return (
-    <div style={{ width: "100%", height: 300, background: "white", padding: "20px", borderRadius: "12px" }}>
+    <div style={{ width: "90%", height: 300, background: "white", padding: "20px",  margin:"50px",borderRadius: "12px" }}>
       <h3 style={{ marginBottom: "15px", color: "#333" }}>Statistik Alumni per Tahun</h3>
 
       <ResponsiveContainer width="100%" height="100%">

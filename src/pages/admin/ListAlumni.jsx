@@ -56,6 +56,12 @@ export default function AdminAlumniList() {
     <div className="admin-page">
       <h2>Data Alumni</h2>
 
+      <Link to="/alumniRegister">
+        <button className="addbtn btn-add">
+          + Tambah Alumni
+        </button>
+      </Link>
+
       {loading && <p>Loading data...</p>}
 
       <div className="table-wrapper">
